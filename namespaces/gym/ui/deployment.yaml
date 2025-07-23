@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-ui
+  labels:
+    app: gym-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gym-ui
+  template:
+    metadata:
+      labels:
+        app: gym-ui
+    spec:
+      containers:
+        - name: gym-ui-container
+          image: gym-ui/develop:latest
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"

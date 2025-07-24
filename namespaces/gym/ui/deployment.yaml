@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gym-ui-container
-          image: gym-ui/develop:latest
+          image: ghcr.io/wilsongodoi/gym-ui:latest
           ports:
             - containerPort: 80
           resources:

@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gym-ui-ingress
-  namespace: gym-ui
+  namespace: gym
 spec:
   rules:
     - host: ""

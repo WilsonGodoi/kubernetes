@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-api
+  namespace: gym
+  labels:
+    app: gym-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gym-api
+  template:
+    metadata:
+      labels:
+        app: gym-api
+    spec:
+      containers:
+        - name: gym-api-container
+          image: ghcr.io/wilsongodoi/gym:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"

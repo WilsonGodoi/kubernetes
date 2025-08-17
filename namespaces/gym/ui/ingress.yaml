@@ -26,6 +26,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: gym-api
+                name: gym-api-service
                 port:
                   number: 8080

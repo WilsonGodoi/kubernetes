@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-db
+  namespace: gym
+spec:
+  selector:
+    matchLabels:
+      app: gym-db
+  template:
+    metadata:
+      labels:
+        app: gym-db
+    spec:
+      containers:
+        - name: gym-db
+          image: postgres:16.2-bullseye
+          env:
+            - name: POSTGRES_USER
+              value: user_dummy
+            - name: POSTGRES_PASSWORD
+              value: password_dummy
+            - name: POSTGRES_DB
+              value: gym_db
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: gym-db-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: gym-db-storage
+          persistentVolumeClaim:
+            claimName: gym-db-storage

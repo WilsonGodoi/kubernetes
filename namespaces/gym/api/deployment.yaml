@@ -27,3 +27,6 @@ spec:
             requests:
               memory: "256Mi"
               cpu: "250m"
+          env:
+            - name: JAVA_OPTS
+              value: "-Xms256m -Xmx512m" # pass JVM options to control heap size
